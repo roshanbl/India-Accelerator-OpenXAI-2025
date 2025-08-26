@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 17, 24, 39; /* Dark Gray */
+  --background-start-rgb: 99, 102, 241; /* Indigo */
+  --background-end-rgb: 236, 72, 153; /* Pink */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 24, 24, 27; /* Deep Gray */
+    --background-end-rgb: 59, 130, 246; /* Blue Glow */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    135deg,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#gameCanvas {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.7),
+              0 0 40px rgba(99, 102, 241, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+}
